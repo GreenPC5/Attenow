@@ -1,0 +1,281 @@
+.content-frame {
+    scroll-behavior: smooth; 
+    overflow: hidden;
+    margin-left: 50px;
+    width: 750px;
+    padding: 0;
+}
+
+.content {
+    width:750px;
+    height:540px;
+    padding:30px;
+    background-color: #F0F5F9;
+}
+
+.content-title {
+    font-family: '微软雅黑';
+    color: black;
+    padding-left: 10px;
+    padding-bottom: 30px;
+    font-size: 45px;
+    font-weight:bold;
+    -webkit-user-select: none;
+}
+
+.task-card {
+    font-family: '微软雅黑';
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border:2px solid;
+    border-color: #C9D6DF;
+    border-radius:10px;
+    width: 660px;
+    height: 80px;
+    background-color: #C9D6DF;
+    white-space: nowrap;
+    -webkit-user-select: none;
+    transition: all 0.25s;
+    transition-property: all;
+    transition-duration: 0.25s;
+    transition-timing-function: ease-in-out;
+    transition-delay: 0s;
+}
+
+.task-card:hover {
+    background-color: #F0F5F9;
+}
+
+.task-ok-button {
+    margin-top: 15px;
+    margin-bottom: 30px;
+    margin-left: 12px;
+    margin-right: 5px;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+}
+
+.task-edit-button {
+    position: absolute;
+    left: 673px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 12px;
+    margin-right: 5px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.task-edit-cover {
+    position: fixed;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    background-color: #C9D6DF;
+    opacity: 0.0;
+    z-index: 80000;
+    pointer-events: none;
+    transition: all 0.3s;
+    transition-property: all;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-in-out;
+    transition-delay: 0s;
+}
+
+.task-edit-card {
+    position: fixed;
+    left:200px;
+    top:100px;
+    width:450px;
+    height:400px;
+    background-color: #F0F5F9;
+    border-radius: 20px;
+    z-index: 81000;
+    visibility: hidden;
+    opacity: 0.0;
+    transition: all 0.3s;
+    transition-property: all;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-in-out;
+    transition-delay: 0s;
+}
+
+.task-edit-close {
+    margin: 15px 15px 0 0;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    right:0;
+    top:0;
+    cursor: pointer;
+}
+
+.task-edit-delete {
+    margin: 15px 15px 0 0;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    right:55px;
+    top:0;
+    cursor: pointer;
+}
+
+.task-edit-submit {
+    width:80px;
+    height:40px;
+    position: absolute;
+    right:0;
+    bottom:0;
+    margin: 0 25px 20px 0;
+    background-color: #C9D6DF;
+    border:2px solid;
+    border-radius: 10px;
+    border-color: #C9D6DF;
+    transition: all 0.3s;
+    transition-property: all;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-in-out;
+    transition-delay: 0s;
+}
+
+.task-edit-submit:hover {
+    background-color: #F0F5F9;
+}
+
+.task-edit-point {
+    margin:20px 0px 10px 30px;
+}
+
+.task-edit-text {
+    font-family: '微软雅黑';
+    color: black;
+    font-size: 25px;
+    -webkit-user-select: none;
+}
+
+.task-edit-input {
+    border: none;
+    outline: none;
+    font-size: 16px;
+    background: none;
+    height: 20px;
+    width: 400px;
+}
+
+.task-ok-button:hover {
+    content: url(../icon/success.png);
+}
+
+.task-text {
+    position: absolute;
+    margin: 0px;
+    width: 550px;
+    height: 80px;
+    display: inline-block;
+}
+
+.task-text-title {
+    padding-top: 16px;
+    font-size: 23px;
+    font-weight: bold;
+}
+
+.task-text-caption {
+    font-size: 12px;
+    display:inline-block;
+}
+
+.task-text-time {
+    font-size: 12px;
+    display:inline-block;
+}
+
+.task-add-card {
+    font-family: '微软雅黑';
+    margin-top: 5px;
+    margin-bottom: 20px;
+    border:2px solid;
+    border-color: #C9D6DF;
+    border-radius:10px;
+    width: 660px;
+    height: 50px;
+    background-color: #C9D6DF;
+    white-space: nowrap;
+    position: absolute;
+    bottom: 0;
+    clip-path: circle(5% at 96% 50%) ;
+    transition: all 0.25s;
+    transition-property: all;
+    transition-duration: 0.15s;
+    transition-timing-function: linear;
+    transition-delay: 0s;
+}
+
+.task-add-input {
+    position: absolute;
+    left:0;
+    background: none;
+    outline: none;
+    border: none;
+    font-size: 20px;
+    width:500px;
+    height:40px;
+    margin:3px 0px 3px 10px;
+}
+
+.task-add-button {
+    position: absolute;
+    right: 0;
+    margin:5px 5px 5px 5px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    transition: all 0.5s;
+    transition-property: all;
+    transition-duration: 0.7s;
+    transition-timing-function: ease-in-out;
+    transition-delay: 0s;
+}
+
+.task-addtag-button {
+    position: absolute;
+    right: 50px;
+    margin:5px 5px 5px 5px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.con-filter {
+    position: relative;
+}
+
+.content-setting {
+    font-family: '微软雅黑';
+    padding-left: 10px;
+    margin-top: 20px;
+}
+
+.setting-title {
+    margin-bottom: 5px;
+    font-size: 25px;
+    font-weight:bold;
+    -webkit-user-select: none;
+}
+
+.setting-text {
+    margin-top: 8px;
+    margin-bottom: 2px;
+    -webkit-user-select: none;
+    font-size: 18px;
+}
+
+.setting-input {
+    border: none;
+    outline: none;
+    font-size: 15px;
+    background: none;
+}

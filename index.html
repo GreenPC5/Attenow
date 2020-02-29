@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="./lib/css/side.css">
+    <link rel="stylesheet" type="text/css" href="./lib/css/nowaday.css">
+    <link rel="stylesheet" type="text/css" href="./lib/css/calendar.css">
+    <script src="./lib/js/calendar.js"></script>
+    <script src="./lib/js/tasklist.js"></script>
+    <title>Attenow</title>
+    <!-- https://electronjs.org/docs/tutorial/security#csp-meta-tag -->
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+  </head>
+
+  <body>
+    <!--- 侧边栏 --->
+    <div class="side-menu">
+      <nav class="navbar">
+        <!-- 预加载器 -->
+        <div class="imgpreload"></div>
+        <!-- 侧边栏顶部logo -->
+        <div class="side-menu-header">
+          <img src="./lib/png/logo_h.png" class="logo"/>
+        </div>
+        <!-- 侧边栏各选项 -->
+        <div class="side-menu-container">
+          <ul>
+            <!-- 今日 -->
+            <li class="menu">
+              <a href="#nowaday">
+                <img src="./lib/icon/nowaday.png" width=40 height=40/>
+                <span class="menu-text">今日</span>
+              </a>
+            </li>
+            <!-- 日历 -->
+            <li class="menu">
+              <a href="#calendar">
+                <img src="./lib/icon/calendar.png" width=40 height=40/>
+                <span class="menu-text">日历</span>
+              </a>
+            </li>
+            <!-- 视图 -->
+            <li class="menu">
+              <a href="#filter">
+                <img src="./lib/icon/filter.png" width=40 height=40/>
+                <span class="menu-text">视图</span>
+              </a>
+            </li>
+            <!-- 设置 -->
+            <li class="menu">
+              <a href="#setting">
+                <img src="./lib/icon/setting.png" width=40 height=40/>
+                <span class="menu-text">设置</span>
+              </a>
+            </li>
+            <!-- 退出 -->
+            <li class="menu">
+              <a href="#" onclick="const {ipcRenderer: ipc} = require('electron');ipc.send('win-close');">
+                <img src="./lib/icon/quit.png" width=40 height=40/>
+                <span class="menu-text">退出</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <!-- 右侧各内容-->
+    <div class="content-frame">
+      <!-- 今日 -->
+      <div class="content con-nowaday" id="nowaday">
+        <!-- 任务编辑界面 -->
+        <div class="task-edit-cover"></div>
+        <div class="task-edit-card">
+          <div class="task-edit-point">
+            <div class="task-edit-text">标题</div>
+            <input class="task-edit-input" placeholder="请输入标题..."/>
+          </div>
+          <div class="task-edit-point">
+            <div class="task-edit-text">描述</div>
+            <input class="task-edit-input" placeholder="任务描述..."/>
+          </div>
+          <div class="task-edit-point">
+            <div class="task-edit-text">时间</div>
+            <input class="task-edit-input" placeholder="请选择时间..."/>
+          </div>
+          <div class="task-edit-point">
+            <div class="task-edit-text">标签</div>
+            <input class="task-edit-input" placeholder="请选择标签..."/>
+          </div>
+          <img src="./lib/icon/close.png" class="task-edit-close" onclick="changeEditCover(false,this)"/>
+          <img src="./lib/icon/delete.png" class="task-edit-delete" onclick="editDeleteButtonClicked()"/>
+          <button class="task-edit-submit" onclick="editSubmitButtonClicked(this.parentNode)">确定</button>
+        </div>
+        <!-- 所有的任务卡 -->
+        <span class="content-title">今日</span>
+      </div>
+      <!-- 日历 -->
+      <div class="content con-calendar" id="calendar">
+        <span class="content-title">日历</span>
+        <table>
+          <thead>
+              <tr>
+                  <td colspan="7">
+                      <div id="top">
+                          <span id="left">&lt;</span>
+                          <span id="topDate"></span>
+                          <span id="right">&gt;</span>
+                      </div>
+                  </td>
+              </tr>
+              <tr id="week">
+                  <td>日</td>
+                  <td>一</td>
+                  <td>二</td>
+                  <td>三</td>
+                  <td>四</td>
+                  <td>五</td>
+                  <td>六</td>
+              </tr>
+          </thead>
+          <tbody id="tbody">
+          </tbody>
+      </table>
+      </div>
+      <!-- 视图 -->
+      <div class="content con-filter" id="filter">
+        <span class="content-title">视图</span>
+        <div style="font-size: 30px;margin: 10px 0 0 12px;opacity: 0.5;">即将推出...</div>
+        <!-- 任务添加界面 -->
+        <div class="task-add-card">
+          <input class="task-add-input" placeholder="开始一项新任务..."/>
+          <img src="./lib/icon/add.png" class='task-add-button'/>
+          <img src="./lib/icon/tag.png" class='task-addtag-button'/>
+        </div>
+      </div>
+      <!-- 设置 -->
+      <div class="content con-setting" id="setting">
+        <span class="content-title">设置</span>
+        <!-- 同步 -->
+        <div class="content-setting">
+          <div class="setting-title">同步</div>
+          <div class="setting-text">同步服务器IP</div>
+          <input class="setting-input" placeholder="127.0.0.1"/>
+          <div class="setting-text">同步服务器端口</div>
+          <input class="setting-input" placeholder="25256"/>
+        </div>
+        <!-- 界面 -->
+        <div class="content-setting">
+          <div class="setting-title">界面</div>
+          <div class="setting-text">字体</div>
+          <input class="setting-input" placeholder="微软雅黑""/>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

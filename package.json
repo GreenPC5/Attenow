@@ -1,0 +1,13 @@
+{
+  "name": "attenow",
+  "version": "1.0.0",
+  "description": "Attenow, Attention to Now",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "dependencies": {},
+  "build":{
+    "appId":"attenow"
+  }
+}
